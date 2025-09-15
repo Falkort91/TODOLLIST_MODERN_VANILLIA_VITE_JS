@@ -1,8 +1,17 @@
-import './style.css'
 
-export default function (todoList){
-    return `
-                <section class="todoapp">
+<!DOCTYPE html>
+<html lang="en" data-framework="javascript-es5">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="A TodoMVC written with JavaScript es5 features." />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>TodoMVC: JavaScript Es5</title>
+        <link rel="stylesheet" href="base.css" />
+        <link rel="stylesheet" href="index.css" />
+    </head>
+    <body>
+        <section class="todoapp">
             <header class="header">
                 <h1>todos</h1>
                 <input class="new-todo" placeholder="What needs to be done?" autofocus />
@@ -13,7 +22,7 @@ export default function (todoList){
                     <label class="toggle-all-label" for="toggle-all">Mark all as complete</label>
                 </div>
                 <ul class="todo-list">
-                    ${todoList.todos.map((todo) => todo.render()).join("")}
+                    
                 </ul>
             </main>
             <footer class="footer">
@@ -38,5 +47,8 @@ export default function (todoList){
 			<p>Refactored by <a href="https://github.com/cburgmer">Christoph Burgmer</a></p>
             <p>Maintenanced by the TodoMVC team</p>
 			<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
-		</footer>`;
-}
+		</footer>
+        <script src="app.js"></script>
+		
+    </body>
+</html>

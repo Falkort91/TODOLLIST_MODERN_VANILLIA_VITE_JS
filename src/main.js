@@ -1,4 +1,4 @@
-
+import './style.css';
 import TodoList from './components/todoList/TodoList';
 
 new TodoList({
