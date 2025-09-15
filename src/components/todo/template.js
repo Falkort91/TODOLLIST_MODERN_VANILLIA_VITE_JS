@@ -1,0 +1,5 @@
+import './style.css'
+
+export default function (todo){
+    return `<li class="todo">${todo.content}</li>`;
+}
