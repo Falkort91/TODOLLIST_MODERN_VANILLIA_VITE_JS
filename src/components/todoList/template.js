@@ -5,19 +5,21 @@ export default function (todoList){
                 <section class="todoapp">
             <header class="header">
                 <h1>todos</h1>
-                <input class="new-todo" placeholder="What needs to be done?" autofocus />
+                <input class="new-todo" placeholder="What needs to be done?" 
+                autofocus 
+                onchange="window.todoList.addTodo(this)" />
             </header>
             <main class="main">
                 <div class="toggle-all-container">
                     <input class="toggle-all" type="checkbox" />
                     <label class="toggle-all-label" for="toggle-all">Mark all as complete</label>
                 </div>
-                <ul class="todo-list">
+                <ul class="todo-list" role="todo-list">
                     ${todoList.todos.map((todo) => todo.render()).join("")}
                 </ul>
             </main>
             <footer class="footer">
-                <span class="todo-count">${todoList.getItemsLeftCount()} item(s) left</span>
+                <span class="todo-count" role='todo-count'><span>${todoList.getItemsLeftCount()}</span> item(s) left</span>
                 <ul class="filters">
                     <li>
                         <a href="#/" class="selected">All</a>
