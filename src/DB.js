@@ -24,4 +24,15 @@ export default class DB{
             })
         return response;
     }
+    static async updateOne(todo){
+        const response = await fetch(this.apiUrl + "todos/"+todo.id,{
+            method:'PUT',
+             headers:{"Content-type": "application/json"},
+             body: JSON.stringify({
+                content: todo.content,
+                completed: todo.completed
+            }),
+        });
+        return response.json();
+    }
 }

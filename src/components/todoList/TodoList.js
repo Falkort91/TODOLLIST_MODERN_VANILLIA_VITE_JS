@@ -78,4 +78,17 @@ export default class TodoList{
         //Je vide l'input
         input.value="";
     }
+
+    async toggleCompletedOneById(id){
+
+        const todo = this.todos.find(todo => todo.id==id);
+        todo.completed = !todo.completed;
+        //Je modifie la DB
+        const resp = await DB.updateOne(todo);
+        //Je modifie le DOM
+        this.domElt.querySelector("[data-id='"+id+"']").classList.toggle("completed");
+        //rerender de l'itemleftcount
+        this.renderItemsLeftCount();
+    }
+
 }
