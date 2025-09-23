@@ -43,6 +43,30 @@ export default class TodoList{
         const itemsLeftDomElt = (this.domElt.querySelector('[role=todo-count] span').innerText=this.getItemsLeftCount());
     }
 
+    async deleteOneById(id){
+        //Je supprime de la DB
+        const resp = await DB.deleteOneById(id);
+        console.log(resp);
+        if (resp.ok){
+        //Je supprime des todos
+        this.deleteOneByIdFromTodos(id);
+        //Je suppirme du DOM
+        this.deleteOneByIdFromDOM(id);
+        //Re render le renderItemsLeftCount()
+        this.renderItemsLeftCount();
+        } 
+        
+    }
+
+    deleteOneByIdFromTodos(id){
+        const index = this.todos.findIndex((todo)=>todo.id===id)
+        this.todos.splice(index,1);
+    }
+    
+    deleteOneByIdFromDOM(id){
+        this.domElt.querySelector("[data-id='"+id+"']").remove();
+    }
+
     async addTodo(input){
         //Ajouté dans la DB distante
         const todo = await DB.create(input.value);

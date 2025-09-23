@@ -18,4 +18,10 @@ export default class DB{
         });
         return response.json();
     }
+    static async deleteOneById(id){
+        const response = await fetch(this.apiUrl + "todos/"+id,{
+            method:'DELETE',
+            })
+        return response;
+    }
 }
